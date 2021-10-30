@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import os, sys, time, requests, psutil, logging
+import os, sys, time, requests
 paththisfile="/root/mypythonscript.py"
 def restart():
     os.system("python3 /root/mypythonscript.py")
