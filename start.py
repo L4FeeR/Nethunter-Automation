@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import os, sys, time, requests
-paththisfile="/root/mypythonscript.py"
+paththisfile="/root/Nethunter-Automation/start.py"
 def restart():
-    os.system("python3 /root/mypythonscript.py")
+    os.system("python3 /root/Nethunter-Automation/start.py")
 def login(param):
     os.system("clear")
     print("")
@@ -80,6 +80,41 @@ def kex():
        restart()
     else:
        print("Entered Wrong Value !, the punishment is restart this framework")
+
+
+def tools():
+    os.system("clear")
+    print("")
+    print(bl+"        ++++++++++++++++++++++++++++++++")
+    print(gn+"                Tool Install Space")
+    print(bl+"        ++++++++++++++++++++++++++++++++")
+    print("")
+    print(gn+"          1 - "+blu+"BurpSuite.")
+    print(gn+"          2 - "+blu+"Wireshark")
+    print(gn+"          3 - "+blu+"Telegram")
+    pask = input("Enter The Choosed Option : ")
+    if pask=='1':
+       print("")
+       os.system("sudo apt install  burpsuite -y")
+       restart()
+    elif pask=='2':
+       print("")
+       os.system("sudo apt install wireshark -y")
+       restart()
+    elif pask=='3':
+        os.system("cd /root")
+        os.system(" wget https://updates.tdesktop.com/tlinux/tsetup.1.1.23.tar.xz")
+        os.system(" tar -xf tsetup.1.1.23.tar.xz ")
+        os.system("cd Telegram")
+        os.system("./Telegram")
+        print("")
+        print("TO START TELEGRAM JUST TYPE THIS COMMAND : ")
+        print("")
+        print("      ./root/Telegram")
+    else:
+         print("choose correct value")
+         restart()
+
 def weeman():
     os.system("clear")
     print(orn+"[+]Forking Weeman From Github...")
@@ -159,11 +194,11 @@ def info():
 
 def menu():
     print("")
-    print("   "+gn+"        1 - "+blu+"HID Attack.")
+    print("   "+gn+"        1 - "+blu+"HID Permission Enable (666)")
     print("   "+gn+"        2 - "+blu+"Metasploit Android Payload.")
     print("   "+gn+"        3 - "+blu+"Kex (vnc server [start - stop]).")
     print("   "+gn+"        4 - "+blu+"Kali Upgradables.")
-    print("   "+gn+"        5 - "+blu+"RED HAWK")
+    print("   "+gn+"        5 - "+blu+"Kali Tools Install [seperated]")
     print("   "+gn+"        6 - "+blu+"Weeman")
     print("   "+gn+"        7 - "+blu+"ShellPhish")
     print("   "+gn+"        0 - "+blu+"Exit.")
@@ -174,7 +209,7 @@ def menu():
 def inpu():
     inp =input(rd+"[+] Enter The Number : ")
     if inp == '1':
-       os.system("/root/HID/Android-PIN-Bruteforce/android-pin-bruteforce crack")
+       os.system("chmod 666 /dev/hidg*")
     elif inp =='2':
          msfpm()
     elif inp =='4':
@@ -182,7 +217,7 @@ def inpu():
     elif inp =='3':
         kex()
     elif inp =='5':
-        os.system("rhawk")
+        tools()
     elif inp =='6':
         os.system("weeman")
     elif inp =='7':
@@ -237,10 +272,71 @@ def metapackages():
     print(gn+"           29 - "+bl+"Kali Linux Windows Resource")
     print(gn+"           30 - "+bl+"Kali Linux Wireless")
 
-
+    def sysup(k):
+        os.system("sudo apt install "+k+" -y")
+        restart()
     mask = input(ss+rd+"root@internet : ")
     if mask=='1':
        os.system("sudo apt update -y && upgrade -y")
+       restart()
+    elif mask=="2":
+       sysup("kali-linux-arm")
+    elif mask=="3":
+       sysup("kali-linux-core")
+    elif mask=="4":
+       sysup("kali-linux-default")
+    elif mask=="5":
+       sysup("kali-linux-everything")
+    elif mask=="6":
+       sysup("kali-linux-headless")
+    elif mask=="7":
+       sysup("kali-linux-large")
+    elif mask=="8":
+       sysup("kali-linux-nethunter")
+    elif mask=="9":
+       sysup("kali-tools-802-11")
+    elif mask=="10":
+       sysup("kali-tools-bluetooth")
+    elif mask=="11":
+       sysup("kali-tools-crypto-stego")
+    elif mask=="12":
+       sysup("kali-tools-database")
+    elif mask=="13":
+       sysup("kali-tools-exploitation")
+    elif mask=="14":
+       sysup("kali-tools-forensics")
+    elif mask=="15":
+       sysup("kali-tools-fuzzing")
+    elif mask=="16":
+       sysup("kali-tools-gpu")
+    elif mask=="17":
+       sysup("kali-tools-hardware")
+    elif mask=="18":
+       sysup("kali-tools-information-gathering")
+    elif mask=="19":
+       sysup("kali-tools-password")
+    elif mask=="20":
+       sysup("kali-tools-post-exploitation")
+    elif mask=="21":
+       sysup("kali-tools-reporting")
+    elif mask=="22":
+       sysup("kali-tools-reverse-engineering")
+    elif mask=="23":
+       sysup("kali-tools-sdr")
+    elif mask=="24":
+       sysup("kali-tools-sniffing-spoofing")
+    elif mask=="25":
+       sysup("kali-tools-top10")
+    elif mask=="26":
+       sysup("kali-tools-voip")
+    elif mask=="27":
+       sysup("kali-tools-vulnerability")
+    elif mask=="28":
+       sysup("kali-tools-web")
+    elif mask=="29":
+       sysup("kali-tools-windows-resources")
+    elif mask=="30":
+       sysup("kali-tools-wireless")
     else:
        print(ss+" Enter Correct Value Plz...")
 
