@@ -253,6 +253,7 @@ def program():
         print("   "+gn+"        5 - "+blu+"Kali Tools Install [seperat]")
         print("   "+gn+"        6 -."+blu+"Fix Low Speed Internet")
         print("   "+gn+"        7 - "+blu+"Wordlist Generator")
+        print("   "+gn+"        8 - "+blu+"Git Cloner.")
         print("   "+gn+"        0 - "+blu+"Exit.")
         print("   "+gn+"        f - "+blu+"Bug Fix [Developer].")
         print("")
@@ -275,6 +276,8 @@ def program():
              fixnet()
         elif inp =='7':
              wordlistgen()
+        elif inp =='8':
+             gclone()
         elif inp =='0':
              os.system("clear")
         elif inp =='f':
@@ -437,7 +440,17 @@ def program():
         print(gn+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         input("PRESS ENTER TO CONTINUE")
         restart()
-
+    def gclone():
+        os.system("clear")
+        print("")
+        print("++++++++++GIT-CLONER++++++++")
+        print("")
+        gask=input(rd+"[+]Enter The Url Of The Tool : "+gn)
+        os.system("cd /root/")
+        clon="git clone "+gask+".git"
+        os.system(clon)
+        os.system("clear")
+        restart()
     load_stc()
     banner("v3.1")
     info()
