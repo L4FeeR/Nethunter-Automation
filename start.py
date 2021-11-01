@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-import os, sys, time, requests
+import os, sys, time, requests, itertools
 def program():
-    paththisfile="/root/Nethunter-Automationstart.py"
+    paththisfile="/root/scriptupdate.py"
     uname=""
     pasw=""
     bl='\033[1;90m'
@@ -84,7 +84,7 @@ def program():
         print()
         print(prpl+"        1."+orn+" Kex Start")
         print(prpl+"        2."+orn+" Kex Stop")
-        print(prpl+"        3."+orn+"Exit")
+        print(prpl+"        3."+orn+" Back")
         print("")
         kask=(input(rd+"[+]root@kex : "))
         if kask=="1":
@@ -211,7 +211,22 @@ def program():
              restart()
         else:
                print("Enter 1-2")
-
+    def fixnet():
+        os.system("clear")
+        print(gn+"           DONT USE THIS TOOL AGAIN !")
+        time.sleep(1)
+        print(bl+"                IF IT SUCCESS.")
+        print("")
+        os.system("cd /root/")
+        os.system("git clone https://github.com/IceM4nn/mirrorscript-v2")
+        os.system("cd mirrorscript-v2")
+        os.system("python3 mirrorscript-v2.py")
+        os.system("clear")
+        os.system("rm -rv -f /root/mirrorscript-v2")
+        os.system("clear")
+        print(orn+"NOW UPDATING THE PROCESS ...")
+        os.system("sudo apt update -y")
+        restart()
     def banner(a):
         os.system("clear")
         print('')
@@ -223,9 +238,9 @@ def program():
     def info():
         print("")
         print("           ++++++++++++++++++++++++++++++++++++++++++++")
-        print("           + Author Name : Pr  FesS  R")
+        print("           + Author      : ProFesSoR")
         print("           + Email       : muhamedlafeer837@gmail.com")
-        print("           + Github      : Pr  FesS  R")
+        print("           + Github      : L4FeeR")
         print("           + InstaGram   : ig_lafeer")
         print("           ++++++++++++++++++++++++++++++++++++++++++++")
 
@@ -236,8 +251,8 @@ def program():
         print("   "+gn+"        3 - "+blu+"Kex (vnc server [start - stop]).")
         print("   "+gn+"        4 - "+blu+"Kali Upgradables.")
         print("   "+gn+"        5 - "+blu+"Kali Tools Install [seperat]")
-        print("   "+gn+"        6 - "+blu+"Weeman")
-        print("   "+gn+"        7 - "+blu+"ShellPhish")
+        print("   "+gn+"        6 -."+blu+"Fix Low Speed Internet")
+        print("   "+gn+"        7 - "+blu+"Wordlist Generator")
         print("   "+gn+"        0 - "+blu+"Exit.")
         print("   "+gn+"        f - "+blu+"Bug Fix [Developer].")
         print("")
@@ -257,9 +272,9 @@ def program():
         elif inp =='5':
              tools()
         elif inp =='6':
-             os.system("weeman")
+             fixnet()
         elif inp =='7':
-             os.system("shellphish")
+             wordlistgen()
         elif inp =='0':
              os.system("clear")
         elif inp =='f':
@@ -374,6 +389,54 @@ def program():
              sysup("kali-tools-wireless")
         else:
             print(ss+" Enter Correct Value Plz...")
+
+    def wordlistgen():
+        os.system("clear")
+        print(gn+"             +++++++++++++++++++++++++")
+        print(gn+"             +"+rd+"   Wordlist Generator "+gn+"+")
+        print(gn+"             +++++++++++++++++++++++++")
+        print()
+        print()
+        chrs=input(ylw+"[+]Enter The Letter Combination : "+blu)
+        print("")
+        l=int(input(ylw+"[+]Enter The Minimum Length Of Words : "+blu))
+        k=l
+        print("")
+        j=int(input(ylw+"[+]Enter The Maximum Length Of Words : "+blu))
+        n=j+1
+        mtl=len(chrs)
+        p=[]
+        print("")
+        zt=input(ylw+"[+]Enter The Name Of Wordlist File : "+blu)
+        for ltp in range(k, n):
+            ans=mtl**ltp
+            p.append(ans)
+        tline=sum(p)
+        print(gn+"Numbers Of Total Lines : "+prpl+tline)
+        input(orn+"PRESS ENTER TO CONTINUE ...")
+        time1=time.asctime()
+        start=time.time()
+        psd = open(zt, 'a')
+        for i in range(k, n):
+           r=i*100/n
+           l=str(r)+'Percentage'
+           sys.stdout.write("\r%s" % l)
+           sys.stdout.flush()
+           psd.flush()
+           for xs in itertools.product(chrs, repeat=i):
+               psd.write(''.join(xs)+'\n')
+        psd.flush()
+        psd.close()
+        sys.stdout.write("\rDone Sucessfully")
+        print(gn+"+++++++++++++++++++++++++ Process Report ++++++++++++++++++++++++++")
+        print ('\t [+] Process Started                      :   '+time1)
+        end=time.time()
+        tima=time.asctime()
+        print ('\t [+] Process Completed                    :   '+tima)
+        print("")
+        print(gn+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        input("PRESS ENTER TO CONTINUE")
+        restart()
 
     load_stc()
     banner("v3.1")
