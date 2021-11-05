@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 import os, sys, time, requests, itertools
 def program():
-    paththisfile="/root/scriptupdate.py"
+    def aska(h):
+        print("┌──(root💀kali)-[/]")
+        h=input("└─# ")
+
+    #aska("lafeer")
+    paththisfile="/root/Nethunter-Automation/start.py"
     uname=""
     pasw=""
     bl='\033[1;90m'
@@ -18,14 +23,14 @@ def program():
         os.system("clear")
         print("")
         print("")
-        load_stc()
+       #load_str()
         banner("v3.1")
         info()
         menu()
         inpul()
     def internetconnection():
         url="https://google.com"
-        timt=1
+        timt=0.1
         try:
             req = requests.get(url, timeout=timt)
             print(gn+"         Internet Connected !")
@@ -52,7 +57,7 @@ def program():
            print("")
            print(rd+"   LOGIN FAILED")
            restart()
-    def kexstart():
+    def kstart():
         print("")
         print('')
         print(cyn+"    ENTER THE PORT NUMBER TO START KEX ON THAT PORT")
@@ -107,8 +112,9 @@ def program():
         print("")
         print(gn+"          1 - "+blu+"BurpSuite.")
         print(gn+"          2 - "+blu+"Wireshark")
-        print(gn+"          3 - "+blu+"Telegram")
-        pask = input("Enter The Choosed Option : ")
+        print(gn+"          3 - "+blu+"Maltego")
+        print("\n\n")
+        pask = input(rd+"Enter The Choosed Option : "+gn)
         if pask=='1':
            print("")
            os.system("sudo apt install  burpsuite -y")
@@ -118,21 +124,17 @@ def program():
            os.system("sudo apt install wireshark -y")
            restart()
         elif pask=='3':
-             os.system("cd /root")
-             os.system(" wget https://updates.tdesktop.com/tlinux/tsetup.1.1.23.tar.xz")
-             os.system(" tar -xf tsetup.1.1.23.tar.xz ")
-             os.system("cd Telegram")
-             os.system("./Telegram")
+             os.system("clear")
+             os.system("sudo apt install maltego -y")
              print("")
-             print("TO START TELEGRAM JUST TYPE THIS COMMAND : ")
-             print("")
-             print("./root/Telegram")
+             print("To Run this tool, you must be in vnc mode. i mean gui .\n this tools is a gui tool")
+             time.sleep(3)
              restart()
         else:
             print("choose correct value")
             restart()
     def load_stc():
-        lowerstr = "ProFesSoR framework is starting..."
+        lowerstr = gn+"ProFesSoR framework is starting..."
         upperstr = lowerstr.upper()
         for x in range (len(lowerstr)):
             s = lowerstr[0:x] + upperstr[x] + lowerstr[x+1:] + '\r'
@@ -229,14 +231,14 @@ def program():
         restart()
     def banner(a):
         os.system("clear")
-        print('')
+        print(bl+'')
         print("                 ####################")
         print("                 #     ProFesSoR    #")
         print("                 #             "+a+" #")
         print("                 ####################")
 
     def info():
-        print("")
+        print(cyn+"")
         print("           ++++++++++++++++++++++++++++++++++++++++++++")
         print("           + Author      : ProFesSoR")
         print("           + Email       : muhamedlafeer837@gmail.com")
@@ -284,7 +286,7 @@ def program():
              login("nano "+paththisfile)
         else:
             print(rd+"YOU ENTERED WRONG VALUE !")
-            time.sleep(1)
+            #time.sleep(1)
             restart()
     def metapackages():
         os.system("clear")
@@ -324,7 +326,8 @@ def program():
         print(gn+"           28 - "+bl+"Kali Linux web")
         print(gn+"           29 - "+bl+"Kali Linux Windows Resource")
         print(gn+"           30 - "+bl+"Kali Linux Wireless")
-
+        print("")
+        print(gn+"           99 - "+rd+"Back To Menu")
         def sysup(k):
             os.system("sudo apt install "+k+" -y")
             restart()
@@ -390,8 +393,10 @@ def program():
              sysup("kali-tools-windows-resources")
         elif mask=="30":
              sysup("kali-tools-wireless")
+        elif mask=="99":
+             restart()
         else:
-            print(ss+" Enter Correct Value Plz...")
+             restart()
 
     def wordlistgen():
         os.system("clear")
@@ -415,7 +420,7 @@ def program():
             ans=mtl**ltp
             p.append(ans)
         tline=sum(p)
-        print(gn+"Numbers Of Total Lines : "+prpl+tline)
+        #print(gn+"Numbers Of Total Lines : "+prpl+tline)
         input(orn+"PRESS ENTER TO CONTINUE ...")
         time1=time.asctime()
         start=time.time()
