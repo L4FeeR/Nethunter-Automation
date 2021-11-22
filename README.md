@@ -35,6 +35,6 @@ Feautures  :
 Contact    :
 
       + Github     :   github.com/L4FeeR
-      + Telegram   :   PrøGesSøR
+      + Telegram   :   PrøFesSøR
       + instagram  :   ig_lafeer
       + YouTube    :   Kali Nethunter
