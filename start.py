@@ -252,7 +252,7 @@ def program():
         print("   "+gn+"        2 - "+blu+"Metasploit Android Payload.")
         print("   "+gn+"        3 - "+blu+"Kex (vnc server [start - stop]).")
         print("   "+gn+"        4 - "+blu+"Kali Upgradables.")
-        print("   "+gn+"        5 - "+blu+"Kali Tools Install [seperat]")
+        print("   "+gn+"        5 - "+blu+"Kali Tools Install [seperate]")
         print("   "+gn+"        6 -."+blu+"Fix Low Speed Internet")
         print("   "+gn+"        7 - "+blu+"Wordlist Generator")
         print("   "+gn+"        8 - "+blu+"Git Cloner.")
