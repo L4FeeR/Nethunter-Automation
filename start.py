@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 import os, sys, time, requests, itertools, random
 def program():
@@ -252,9 +253,9 @@ def program():
         print("   "+gn+"        6 -."+blu+"Fix Low Speed Internet")
         print("   "+gn+"        7 - "+blu+"Wordlist Generator")
         print("   "+gn+"        8 - "+blu+"Git Cloner.")
+        print("   "+gn+"        9 - "+blu+"Monitor Mode.")
         print("   "+gn+"        0 - "+blu+"Exit.")
         print("   "+gn+"        f - "+blu+"Bug Fix [Developer].")
-      #  print("   "+gn+"        i - "+blu+"Info.")
         print("")
         print("")
         internetconnection()
@@ -281,8 +282,10 @@ def program():
              os.system("clear")
         elif inp =='f':
              login("nano "+paththisfile)
-        #elif inp =='i':
-         #    myinfo()
+        elif inp =='9':
+             monitor()
+        elif inp =='10':
+             gitcon()
         else:
             print(rd+"YOU ENTERED WRONG VALUE !")
             #time.sleep(1)
@@ -444,6 +447,58 @@ def program():
         print(gn+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         input("PRESS ENTER TO CONTINUE")
         restart()
+    def monitor():
+        os.system("clear")
+        print("")
+        print(gn+"                     :::::::::::::::::::::")
+        print(gn+"                     ::::"+rd+"Monitor Mode"+gn+" ::::")
+        print(gn+"                     :::::::::::::::::::::")
+        print()
+        print(blu+"                  1. "+cyn+"Wlan0 - Monitor Mode - Enable")
+        print(blu+"                  2. "+cyn+"Wlan0 - Monitor Mode - Disable")
+        print(blu+"                  3. "+cyn+"Wlan1 - Monitor Mode - Enable")
+        print(blu+"                  4. "+cyn+"Wlan1 - Monitor Mode - Disable")
+        print(blu+"                  5. "+cyn+"Custom adapter Name - Monitor - Enabler")
+        print(blu+"                  6. "+cyn+"Custom adaptor - monitor - Disable")
+        print(blu+"                  0. "+cyn+"Exit.")
+        print("")
+        mon=input(""+rd+"[+]root@mon# "+ylw+"")
+        if mon =='1':
+           print("")
+           os.system("airmon-ng start wlan0")
+           time.sleep(2)
+           monitor()
+        elif mon =='2':
+             print("")
+             os.system("airmon-ng stop wlan0")
+             time.sleep(2)
+             monitor()
+        elif mon =='3':
+             print("")
+             os.system("airmon-ng start wlan1")
+             time.sleep(3)
+             monitor()
+        elif mon =='4':
+             print("")
+             os.system("airmon-ng stop wlan1")
+             time.sleep(2)
+             monitor()
+        elif mon =='5':
+             print("")
+             j1=input(rd+"[+]Enter Name Of Adapter :"+gn+" ")
+             os.system("airmon-ng start "+j1)
+             time.sleep(2)
+             monitor()
+        elif mon =='6':
+             print("")
+             j2=input(rd+"[+]Enter Adapter Name :"+gn+" ")
+             os.system("airmon-ng stop "+j2)
+             time.sleep(2)
+             monitor()
+        elif mon =='0':
+             restart()
+        else:
+            monitor()
     def gclone():
         os.system("clear")
         print("")
