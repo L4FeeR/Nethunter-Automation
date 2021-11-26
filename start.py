@@ -1,10 +1,6 @@
 #!/usr/bin/python3
-import os, sys, time, requests, itertools
+import os, sys, time, requests, itertools, random
 def program():
-    def aska(h):
-        print("┌──(root💀kali)-[/]")
-        h=input("└─# ")
-
     #aska("lafeer")
     paththisfile="/root/Nethunter-Automation/start.py"
     uname=""
@@ -43,9 +39,9 @@ def program():
         os.system("clear")
         print("")
         print("")
-        print(gn+"       +++++++++++++++++++++++++++")
-        print("       +++++++++++++"+rd+"LOGIN"+gn+"++++++++++++")
-        print("          +++++++++++++++++++++++++++")
+        print(gn+"       =========================")
+        print("       ==========="+rd+"LOGIN"+gn+"==========")
+        print("          =========================")
         print("")
         username = input(rd+"[+]Enter Username : "+bl)
         passwd = input(rd+"[+]Enter Password : "+bl)
@@ -245,7 +241,7 @@ def program():
         print("           + Github      : L4FeeR")
         print("           + InstaGram   : ig_lafeer")
         print("           ++++++++++++++++++++++++++++++++++++++++++++")
-
+        time.sleep(1)
     def menu():
         print("")
         print("   "+gn+"        1 - "+blu+"HID Permission Enable (666)")
@@ -258,6 +254,7 @@ def program():
         print("   "+gn+"        8 - "+blu+"Git Cloner.")
         print("   "+gn+"        0 - "+blu+"Exit.")
         print("   "+gn+"        f - "+blu+"Bug Fix [Developer].")
+      #  print("   "+gn+"        i - "+blu+"Info.")
         print("")
         print("")
         internetconnection()
@@ -284,6 +281,8 @@ def program():
              os.system("clear")
         elif inp =='f':
              login("nano "+paththisfile)
+        #elif inp =='i':
+         #    myinfo()
         else:
             print(rd+"YOU ENTERED WRONG VALUE !")
             #time.sleep(1)
@@ -467,5 +466,4 @@ def program():
         info()
         menu()
         inpul()
-
 program()
