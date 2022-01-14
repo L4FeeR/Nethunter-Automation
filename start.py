@@ -13,7 +13,7 @@ def program():
     prpl='\033[1;95m'
     cyn='\033[1;96m'
     wht='\033[1;97m'
-    ylw='\033[1;34m'
+    ylw='\033[1;32m'
     ss=prpl+"["+rd+"+"+prpl+"]"
     def restart():
         os.system("clear")
@@ -244,51 +244,106 @@ def program():
         time.sleep(1)
     def menu():
         print("")
-        print("   "+gn+"        1 - "+blu+"HID Permission Enable (666)")
-        print("   "+gn+"        2 - "+blu+"Metasploit Android Payload.")
-        print("   "+gn+"        3 - "+blu+"Kex (vnc server [start - stop]).")
-        print("   "+gn+"        4 - "+blu+"Kali Upgradables.")
-        print("   "+gn+"        5 - "+blu+"Kali Tools Install [seperate]")
-        print("   "+gn+"        6 -."+blu+"Fix Low Speed Internet")
-        print("   "+gn+"        7 - "+blu+"Wordlist Generator")
-        print("   "+gn+"        8 - "+blu+"Git Cloner.")
-        print("   "+gn+"        9 - "+blu+"Monitor Mode.")
-        print("   "+gn+"        0 - "+blu+"Exit.")
+        print("   "+gn+"       01 - "+blu+"HID Permission Enable (666)")
+        print("   "+gn+"       02 - "+blu+"Metasploit Android Payload.")
+        print("   "+gn+"       03 - "+blu+"Kex (vnc server [start - stop]).")
+        print("   "+gn+"       04 - "+blu+"Kali Upgradables.")
+        print("   "+gn+"       05 - "+blu+"Kali Tools Install [seperate]")
+        print("   "+gn+"       06 -."+blu+"Fix Low Speed Internet")
+        print("   "+gn+"       07 - "+blu+"Wordlist Generator")
+        print("   "+gn+"       08 - "+blu+"Git Cloner.")
+        print("   "+gn+"       09 - "+blu+"Monitor Mode.")
+        print("   "+gn+"       10 - "+blu+"Mac Changer.")
+        print("   "+gn+"       00 - "+blu+"Exit.")
         print("   "+gn+"        f - "+blu+"Bug Fix [Developer].")
         print("")
         print("")
         internetconnection()
     def inpul():
         inp =input(rd+"[+] Enter The Number : ")
-        if inp =='1':
+        if inp =='1' or inp =='01':
            os.system("sudo chmod 666 /dev/hidg*")
            restart()
-        elif inp =='2':
+        elif inp =='2' or inp=='02':
              msfpm()
-        elif inp =='4':
+        elif inp =='4' or inp=='03':
              metapackages()
-        elif inp =='3':
+        elif inp =='3' or inp=="04":
              kex()
-        elif inp =='5':
+        elif inp =='5' or inp=="05":
              tools()
-        elif inp =='6':
+        elif inp =='6' or inp=="06":
              fixnet()
-        elif inp =='7':
+        elif inp =='7' or inp=="07":
              wordlistgen()
-        elif inp =='8':
+        elif inp =='8' or inp=="08":
              gclone()
-        elif inp =='0':
+        elif inp =='0' or inp=="00":
              os.system("clear")
         elif inp =='f':
              login("nano "+paththisfile)
-        elif inp =='9':
+        elif inp =='9' or inp=="09":
              monitor()
         elif inp =='10':
-             gitcon()
+             macchanger()
         else:
             print(rd+"YOU ENTERED WRONG VALUE !")
             #time.sleep(1)
             restart()
+    def macchanger():
+           def rmac():
+                print("")
+                os.system("macchanger "+wc+" p")
+                time.sleep(3)
+                restart()
+           def rnmac():
+                os.system("macchanger "+wc+" -r")
+                time.sleep(3)
+                restart()
+           def smac():
+                print("")
+                nmac=input("[+]Enter New Mac Address : ")
+                print("")
+                os.system("macchanger "+wc+" -m "+nmac)
+                restart()
+           def smym():
+               print("")
+               os.system("clear")
+               print(ylw+"++++++++++++++++")
+               print(rd+"   "+wc)
+               print(ylw+"++++++++++++++++")
+               print("")
+               print("")
+               print(ylw+"===============================")
+               os.system("macchanger  "+wc+" s")
+               print(ylw+"===============================")
+               print("")
+               print(gn+"Restarting In 5 sec...")
+               time.sleep(5)
+               restart()
+           os.system("clear")
+           wc=input("[+]Enter Your Wireless Interface Name : ")
+           os.system("clear")
+           print("")
+           print(rd+"            ===============================")
+           print(gn+"                        Mac Changer")
+           print(rd+"            ===============================")
+           print("")
+           print(gn+"              1."+bl+"Reset Mac To Default Address")
+           print(gn+"              2."+bl+"Randomized Mac Changer.")
+           print(gn+"              3."+bl+"Specific Mac Address Changer.")
+           print(gn+"              4."+bl+"Show My Mac Address.")
+           mc=input(cyn+"[+]root@mac [~]  ")
+           if mc=='1':
+           	rmac()
+           elif mc=='2':
+              	rnmac()
+           elif mc=='3':
+            	 smac()
+           elif mc=='4':
+           	   smym()
+           else:
+           	    restart()
     def metapackages():
         os.system("clear")
         print("")
