@@ -20,7 +20,7 @@ def program():
         print("")
         print("")
        #load_str()
-        banner("v3.1")
+        banner(prpl+"v3.8")
         info()
         menu()
         inpul()
@@ -29,10 +29,10 @@ def program():
         timt=0.1
         try:
             req = requests.get(url, timeout=timt)
-            print(gn+"         Internet Connected !")
+            print(gn+"            [+]Internet Connected !")
             print("")
         except (requests.ConnectionError, requests.Timeout) as exception:
-            print(rd+"         No Internet Connected !")
+            print(rd+"            [+]No Internet Connected !")
             print("")
 
     def login(param):
@@ -109,6 +109,7 @@ def program():
         print(gn+"          1 - "+blu+"BurpSuite.")
         print(gn+"          2 - "+blu+"Wireshark")
         print(gn+"          3 - "+blu+"Maltego")
+        print(gn+"         00 - "+blu+"Exit")
         print("\n\n")
         pask = input(rd+"Enter The Choosed Option : "+gn)
         if pask=='1':
@@ -126,11 +127,15 @@ def program():
              print("To Run this tool, you must be in vnc mode. i mean gui .\n this tools is a gui tool")
              time.sleep(3)
              restart()
+        elif pask=='0' or pask=='00':
+           print("")
+           
+           restart()
         else:
             print("choose correct value")
             restart()
     def load_stc():
-        lowerstr = gn+"ProFesSoR framework is starting..."
+        lowerstr = gn+"ProFesSoR Framework is starting..."
         upperstr = lowerstr.upper()
         for x in range (len(lowerstr)):
             s = lowerstr[0:x] + upperstr[x] + lowerstr[x+1:] + '\r'
@@ -143,10 +148,10 @@ def program():
         print(bl+"                       +"+rd+" Metasploit Payload Maker  "+bl+"+")
         print(bl+"                       +++++++++++++++++++++++++++++")
         print("")
-        print(gn+"                        1 "+cyn+"Android Payload [.apk]")
-        print(gn+"                        2 "+cyn+"Windows Payload[.exe]")
+        print(gn+"                        1 "+cyn+"Android Payload [.apk] - Tcp")
+        print(gn+"                        2 "+cyn+"Windows Payload[.exe] - Tcp")
         print(gn+"                        3 "+prpl+"Back To Main")
-        inm=input(rd+"[+]root@msfpm : ")
+        inm=input(rd+"[+]root@msfpm : "+blu)
         if inm =='1':
            print ("")
            apkname=input(ss+gn+"Enter Name Of Apk : "+wht)
@@ -176,6 +181,7 @@ def program():
               os.system(plo)
            else:
                 print("run manually")
+                restart()
         elif inm == '2':
              print ("")
              exename=input(ss+gn+"Enter Name Of Apk : "+wht)
@@ -203,12 +209,21 @@ def program():
                 wfilename="windows-payload.rc"
                 wplo = "msfconsole -q -r "+wfilename
                 os.system(wplo)
+                print("heading back to main screen ...")
+                time.sleep(2)
+                restart()
              else:
                  print("run manually")
+                 print()
+                 print("heading back to main screen ...")
+                 time.sleep(2)
+                 restart()
         elif inm == '3':
              restart()
         else:
                print("Enter 1-2")
+               time.sleep(2)
+               restart()
     def fixnet():
         os.system("clear")
         print(gn+"           DONT USE THIS TOOL AGAIN !")
@@ -230,39 +245,40 @@ def program():
         print(bl+'')
         print("                 ####################")
         print("                 #     ProFesSoR    #")
-        print("                 #             "+a+" #")
+        print("                 #            "+gn+a+bl+" #")
         print("                 ####################")
 
     def info():
         print(cyn+"")
         print("           ++++++++++++++++++++++++++++++++++++++++++++")
-        print("           + Author      : ProFesSoR")
-        print("           + Email       : muhamedlafeer837@gmail.com")
+        print("           + Author      : Lafeer")
+        print("           + Email       : nethunter837@gmail.com")
         print("           + Github      : L4FeeR")
-        print("           + InstaGram   : ig_lafeer")
+        print("           + TeleGram    : @l4feer")
         print("           ++++++++++++++++++++++++++++++++++++++++++++")
         time.sleep(1)
     def menu():
         print("")
-        print("   "+gn+"       01 - "+blu+"HID Permission Enable (666)")
-        print("   "+gn+"       02 - "+blu+"Metasploit Android Payload.")
+        print("   "+gn+"       01 - "+blu+"HID Permission Enable")
+        print("   "+gn+"       02 - "+blu+"Metasploit Payload.")
         print("   "+gn+"       03 - "+blu+"Kex (vnc server [start - stop]).")
         print("   "+gn+"       04 - "+blu+"Kali Upgradables.")
         print("   "+gn+"       05 - "+blu+"Kali Tools Install [seperate]")
-        print("   "+gn+"       06 -."+blu+"Fix Low Speed Internet")
+        print("   "+gn+"       06 - "+blu+"Fix Low Speed Internet")
         print("   "+gn+"       07 - "+blu+"Wordlist Generator")
         print("   "+gn+"       08 - "+blu+"Git Cloner.")
         print("   "+gn+"       09 - "+blu+"Monitor Mode.")
         print("   "+gn+"       10 - "+blu+"Mac Changer.")
         print("   "+gn+"       00 - "+blu+"Exit.")
+        print("   "+gn+"        c - "+blu+"Check Internet Connection.")
         print("   "+gn+"        f - "+blu+"Bug Fix [Developer].")
         print("")
         print("")
-        internetconnection()
+        
     def inpul():
         inp =input(rd+"[+] Enter The Number : ")
         if inp =='1' or inp =='01':
-           os.system("sudo chmod 666 /dev/hidg*")
+           os.system("sudo chmod 777 /dev/hidg*")
            restart()
         elif inp =='2' or inp=='02':
              msfpm()
@@ -279,13 +295,27 @@ def program():
         elif inp =='8' or inp=="08":
              gclone()
         elif inp =='0' or inp=="00":
+             print()
+             print()
+             print(gn+" Exiting from the framework...")
+             time.sleep(2)
              os.system("clear")
+             print("    Exited the framework.")
+             
         elif inp =='f':
              login("nano "+paththisfile)
         elif inp =='9' or inp=="09":
              monitor()
         elif inp =='10':
              macchanger()
+        elif inp == 'c' or inp == 'C':
+             os.system("clear")
+             print()
+             print(ylw+"          Checking internet connection...")
+             print("")
+             internetconnection()
+             time.sleep(3)
+             restart()
         else:
             print(rd+"YOU ENTERED WRONG VALUE !")
             #time.sleep(1)
@@ -492,13 +522,14 @@ def program():
         psd.flush()
         psd.close()
         sys.stdout.write("\rDone Sucessfully")
-        print(gn+"+++++++++++++++++++++++++ Process Report ++++++++++++++++++++++++++")
-        print ('\t [+] Process Started                      :   '+time1)
+        print(gn+"++++++++ Process Report ++++++++")
+        print ('\t [+] Process Started   : '+time1)
         end=time.time()
         tima=time.asctime()
-        print ('\t [+] Process Completed                    :   '+tima)
+        print ('\t [+] Process Completed : '+tima)
         print("")
-        print(gn+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        print(gn+"++++++++++++++++++++++++++++++++")
+        print()
         input("PRESS ENTER TO CONTINUE")
         restart()
     def monitor():
@@ -565,7 +596,7 @@ def program():
         os.system("clear")
         restart()
     load_stc()
-    banner("v3.1")
+    banner("v3.8")
     info()
     menu()
     inpul()
